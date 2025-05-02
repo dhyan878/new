@@ -1,0 +1,77 @@
+/* Smooth GPU-accelerated infinite marquee */
+@keyframes smooth-marquee {
+   0% {
+     transform: translate3d(0, 0, 0);
+   }
+   100% {
+     transform: translate3d(-50%, 0, 0);
+   }
+ }
+ 
+ /* Marquee Container */
+ .marquee-wrapper {
+   overflow: hidden;
+   width: 100%;
+   position: relative;
+ }
+ 
+ /* Marquee Track - contains 2 sets of logos */
+ .marquee-track {
+   display: flex;
+   width: max-content;
+   animation: smooth-marquee 30s linear infinite;
+   will-change: transform;
+ }
+ 
+ /* Pause on hover */
+ .marquee-track:hover {
+   animation-play-state: paused;
+ }
+ 
+ /* Individual logo styling */
+ .logo-item {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: 0 2rem;
+   min-width: 160px; /* Consistent spacing */
+ }
+ 
+ /* Logo image tweaks */
+ .logo-item img {
+   height: 2.5rem;       /* 40px = h-10 */
+   width: auto;
+   max-width: 160px;
+   object-fit: contain;
+   filter: grayscale(100%);
+   opacity: 0.7;
+   transition: all 0.3s ease;
+ }
+ 
+ /* On hover, make logos colored and fully visible */
+ .logo-item img:hover {
+   filter: grayscale(0%);
+   opacity: 1;
+   transform: scale(1.05);
+ }
+ 
+ /* Optional fade-in animation for section */
+ @keyframes fadeIn {
+   from { opacity: 0; transform: translateY(20px); }
+   to { opacity: 1; transform: translateY(0); }
+ }
+ 
+ .animate-fade-in {
+   animation: fadeIn 0.8s ease-out forwards;
+ }
+ 
+ /* Optional card hover effect for other components */
+ .product-card {
+   transition: all 0.3s ease;
+ }
+ 
+ .product-card:hover {
+   transform: translateY(-5px);
+ }
+ 
+ 
