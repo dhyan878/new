@@ -9,7 +9,7 @@ import {
   FaChevronDown
 } from 'react-icons/fa';
 import { HiOutlineMail, HiArrowRight } from 'react-icons/hi';
-import { Link } from 'react-router-dom';  // Import Link for routing
+import { Link } from 'react-router-dom';
 
 function AuthForm({ isLogin, onToggle }) {
   const [showRoleDropdown, setShowRoleDropdown] = useState(false);
@@ -51,10 +51,10 @@ function AuthForm({ isLogin, onToggle }) {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-teal-50 flex items-center justify-center p-4 overflow-auto">
-      <div className="bg-white shadow-xl rounded-2xl flex flex-col md:flex-row max-w-4xl w-full overflow-hidden transition-all duration-300 hover:shadow-2xl">
+    <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-teal-50 flex items-center justify-center p-4">
+      <div className="bg-white shadow-xl rounded-2xl flex flex-col md:flex-row max-w-4xl w-full overflow-hidden">
         {/* Left Section */}
-        <div className="bg-emerald-600 text-white flex flex-col justify-center items-center p-8 md:p-10 md:w-1/2 transition-all duration-500">
+        <div className="bg-emerald-600 text-white flex flex-col justify-center items-center p-8 md:p-10 md:w-1/2">
           <h2 className="text-3xl font-bold mb-4 text-center">
             {isLogin ? 'Welcome Back!' : 'Welcome!'}
           </h2>
@@ -72,7 +72,6 @@ function AuthForm({ isLogin, onToggle }) {
             <HiArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
           </button>
 
-          {/* Go to Home Button */}
           <div className="mt-4">
             <Link to="/" className="text-white underline hover:text-emerald-200">
               Go to Home
@@ -81,7 +80,7 @@ function AuthForm({ isLogin, onToggle }) {
         </div>
 
         {/* Right Section - Form */}
-        <div className="p-8 md:p-10 md:w-1/2 flex flex-col justify-center overflow-auto">
+        <div className="p-8 md:p-10 md:w-1/2 flex flex-col justify-center">
           <h2 className="text-2xl font-bold mb-6 text-center text-emerald-800">
             {isLogin ? 'Login to your account' : 'Create new account'}
           </h2>
@@ -108,9 +107,8 @@ function AuthForm({ isLogin, onToggle }) {
                       <div
                         key={role.value}
                         onClick={() => handleRoleSelect(role.value)}
-                        className={`px-4 py-2 hover:bg-emerald-50 cursor-pointer ${
-                          formData.role === role.value ? 'bg-emerald-100 text-emerald-800' : 'text-gray-700'
-                        }`}
+                        className={`px-4 py-2 hover:bg-emerald-50 cursor-pointer ${formData.role === role.value ? 'bg-emerald-100 text-emerald-800' : 'text-gray-700'
+                          }`}
                       >
                         {role.label}
                       </div>
@@ -260,9 +258,5 @@ function AuthForm({ isLogin, onToggle }) {
 export default function AuthPage() {
   const [isLogin, setIsLogin] = useState(true);
   const handleToggle = () => setIsLogin(!isLogin);
-  return (
-    <div className="pt-16">
-      <AuthForm isLogin={isLogin} onToggle={handleToggle} />
-    </div>
-  );
+  return <AuthForm isLogin={isLogin} onToggle={handleToggle} />;
 }

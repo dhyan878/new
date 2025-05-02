@@ -32,9 +32,9 @@ const Hero = () => {
                     </p>
                     <div className="flex gap-3 max-w-md">
                         <input
-                            type="email"
+                            type="text"
                             name=""
-                            placeholder="Email Address"
+                            placeholder="send a message"
                             className="flex-1 px-6 py-4 border border-green-500 rounded-xl focus:outline-none focus:border-green-600 focus:ring-2 focus:ring-green-100 transition-alt hover:border-green-600 hover:ring-2 hover:ring-green-300"
                         />
 
